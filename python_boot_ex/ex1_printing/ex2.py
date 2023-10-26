@@ -1,0 +1,27 @@
+# ex1
+# print("Hello world!\nHello world!"
+#      "\nHello world")
+# ex2
+# print("Hello " + "Leem")
+
+# Indentation(들여쓰기) Error Test
+"""
+ print("Hello World") <-- X
+    print("Hello World") <-- X
+print("Hello Wolrd") <-- O
+"""
+
+# code Challenges
+"""
+예제
+print(Day 1 - String Manipulation")
+print("String Concatenation is done with the"+" sign.")
+    print('e.g. print("Hello " + "world")')
+print(("New lines can be created with a backslash and n.")
+"""
+# 정답
+print("Day 1 - String Manipulation")
+# print("String Concatenation is done with the " + '"+"' + " sign.")
+print('String Concatenation is done with the "+" sign.')
+print('e.g. print("Hello " + "world")')
+print("New lines can be created with a backslash and n.")
