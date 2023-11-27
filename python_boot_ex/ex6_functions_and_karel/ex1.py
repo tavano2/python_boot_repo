@@ -20,4 +20,47 @@ print('***************************')
 my_function()
 
 # 59,60 수업 로봇 챌린지는 추후 진행
+"""
+챌린지는 https://reeborg.ca/reeborg.html?
+lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Alone&url=worlds%2Ftutorial_en%2Falone.json
+에서 진행한다.
+
+59번 challenge code
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+정사각형 움직이기
+turn_left()
+move()
+turn_right()
+move()
+turn_right()
+move()
+turn_right()
+move()
+
+60번 강의 챌린지는 https://reeborg.ca/reeborg.html?
+lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Hurdle%201&url=worlds%2Ftutorial_en%2Fhurdle1.json
+에서 진행한다.
+
+60번 chaallenge
+def turn_right():
+    for i in  range(0, 3):
+        turn_left()
+
+def move_fn():
+    move()
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+for i in  range(0, 6):
+    move_fn()
+"""
 
