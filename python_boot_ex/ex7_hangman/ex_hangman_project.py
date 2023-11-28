@@ -12,6 +12,7 @@ ex7의 다이어그램 xml_list -> ex7
 import random
 import ex_art
 import ex_words
+from replit import clear
 
 # blank_len = 0
 stages = ex_art.stages
@@ -22,7 +23,7 @@ choose_word = random.choice(ex_words.word_list)
 letter = list(choose_word)
 
 print(ex_art.logo)
-print(f'Pssst, the solution is {choose_word}')
+# print(f'Pssst, the solution is {choose_word}')
 
 for i in range(0, len(letter)):
     display.append("_")
@@ -48,7 +49,7 @@ while blank_len > 0:
 end_of_game = False
 while not end_of_game:
     guess = input('Guess a letter: ').lower()
-
+    clear()
     if guess in display:
         print(f"You've already guessed {guess}")
 
