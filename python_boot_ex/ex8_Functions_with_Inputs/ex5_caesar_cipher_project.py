@@ -11,17 +11,20 @@
 시프트 숫자를 더하거나 뺀다.
 결과 인덱스가 25보다 클때는 -26, 작을때는 +26으로 결과 인덱스를 계산해준다.
 """
-
+import ex5_caesar_art
 
 alphabet = [chr(i) for i in range(ord('a'), ord('z') + 1)]
 game_chk = True
 
-def encrypt(text, shift):
+"""
+step 1 encrypt, decrypt 만들기
+
+def encrypt(en_text, en_shift):
     rs_char = ""
-    for char in text:
+    for char in en_text:
         if char.isalpha():
             # 배열
-            shifted_char_idx = alphabet.index(char) + shift
+            shifted_char_idx = alphabet.index(char) + en_shift
             if shifted_char_idx > 25:
                 shifted_char_idx = shifted_char_idx - 26
             shifted_char = alphabet[shifted_char_idx]
@@ -33,12 +36,12 @@ def encrypt(text, shift):
     print(f"The encoded text is {rs_char}")
 
 
-def decrypt(text, shift):
+def decrypt(dn_text, dn_shift):
     de_char = ""
-    for char in text:
+    for char in dn_text:
         if char.isalpha():
             # 배열
-            shifted_char_idx = alphabet.index(char) - shift
+            shifted_char_idx = alphabet.index(char) - dn_shift
             if shifted_char_idx < 0:
                 shifted_char_idx = 26 + shifted_char_idx
             shifted_char = alphabet[shifted_char_idx]
@@ -48,19 +51,48 @@ def decrypt(text, shift):
             shifted_char = char
         de_char += shifted_char
     print(f"The decoded text is {de_char}")
+"""
 
+"""
+step 2 encrypt, decrypt 하나로 합치기
+"""
+
+
+def caesar(plain_text, shift_number, en_type):
+    result = ""
+    if en_type == 'decode':
+        shift_number *= -1
+
+    for char in plain_text:
+        char_idx = alphabet.index(char)
+        shifted_char_idx = char_idx + shift_number
+        if char.isalpha():
+            if en_type == 'encode':
+                if shifted_char_idx > 25:
+                    shifted_char_idx = shifted_char_idx - 26
+            elif en_type == 'decode':
+                if shifted_char_idx < 0:
+                    shifted_char_idx = 26 + shifted_char_idx
+            shifted_char = alphabet[shifted_char_idx]
+        else:
+            shifted_char = char
+        result += shifted_char
+    print(f"The {en_type}d text is {result}")
+
+
+print(ex5_caesar_art.logo)
 
 while game_chk:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
-    if direction == 'encode':
-        encrypt(text=text, shift=shift)
-    elif direction == 'decode':
-        decrypt(text=text, shift=shift)
+    caesar(plain_text=text, shift_number=shift % 26, en_type=direction)
 
+    game_chk = False
     again = input("Type 'yes' if you want go again. Otherwise type 'no'\n")
-    if again == 'no':
-        game_chk = False
+    if again == 'yes':
+        game_chk = True
+    else:
+        print("Good Bye")
 
