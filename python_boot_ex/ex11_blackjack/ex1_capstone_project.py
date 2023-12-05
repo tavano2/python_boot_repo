@@ -5,6 +5,8 @@ import random
 # 나는 기존 솔루션과 다르게 만들었다.
 # 기존 솔루션은 card arr를 pop하지 않고 모두 동일한 확률로 뽑히며
 # 에이스카드를 1 or 11이 아닌 11로 고정했다.
+# 솔루션에서는 sum 함수를 사용하기도 하는데, A,J,Q,K를 사용하지 않았기 때문에 가능하다.
+# 대신 현재 게임에서는 블랙잭 기능을 제외한 상태이다 (ACE + 10)
 
 
 def choice_value_a():
@@ -59,6 +61,7 @@ def black_jack(cmd):
             # 함수 전역 변수
             blackjack_card = ['A', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
             a_value = 1
+            a_chk = False
             my_cards = []
             cpu_cards = []
             # 총 두번의 카드 뽑기
@@ -68,7 +71,7 @@ def black_jack(cmd):
             # 내 카드패 공개, a뽑을시 1,11 선택
             print(f"Your cards : {my_cards}")
             if 'A' in my_cards:
-                print('진입')
+                a_chk = True
                 a_value = choice_value_a()
             # 두번째 카드는 비공개이므로 첫번째 cpu 카드만 공개
             print(f"Computers's first card: {cpu_cards[0]}")
@@ -76,7 +79,7 @@ def black_jack(cmd):
             more_chance = input("Type 'y' to get another card, type 'n' to pass: ").lower()
             if more_chance == 'y':
                 append_card(my_cards, blackjack_card)
-                if 'A' in my_cards:
+                if 'A' in my_cards and not a_chk:
                     a_value = choice_value_a
 
             # 카드 모두 계산
