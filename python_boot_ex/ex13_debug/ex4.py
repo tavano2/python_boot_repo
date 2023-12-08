@@ -12,7 +12,6 @@ for number in range(1, target + 1):
   else:
     print([number])
 
-
 """
 
 
