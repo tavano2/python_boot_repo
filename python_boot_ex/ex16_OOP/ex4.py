@@ -7,4 +7,12 @@
 # 파이썬 패키지들은 pypi.org에서 확인할 수 있다.
 
 
-import prettytable
+from prettytable import PrettyTable
+
+table = PrettyTable()
+
+
+table.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander"])
+table.add_column("Type", ["Electric", "Water", "Fire"])
+table.align = "l"
+print(table)
