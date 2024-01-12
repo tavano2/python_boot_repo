@@ -1,10 +1,11 @@
 facebook_posts = eval(input())
 
 total_likes = 0
-try:
-    for post in facebook_posts:
+
+for post in facebook_posts:
+    try:
         total_likes = total_likes + post['Likes']
-except KeyError:
-    total_likes += 0
-finally:
-    print(total_likes)
+    except KeyError:
+        total_likes += 0
+print(total_likes)
+
